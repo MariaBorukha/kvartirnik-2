@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Событие · Квартирник у Маши Боруха</title>
+<meta name="description" content="Следующий квартирник у Маши Боруха — дата, место, регистрация.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav-wrap scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Квартирник <em>у Маши</em></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="events.html" aria-current="page">Событие</a></li>
+      <li><a href="archive.html">Архив</a></li>
+      <li><a href="playlist.html">Плейлист</a></li>
+      <li><a href="team.html">Команда</a></li>
+      <li><a href="finance.html">Финансы</a></li>
+      <li><a href="rules.html">Правила</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-head wrap">
+  <p class="section__label reveal">Следующее мероприятие</p>
+  <h1 class="page-title reveal d1">Следующий<br><em>квартирник</em></h1>
+</div>
+
+<div class="wrap">
+  <div class="event-date-block reveal">
+    <div class="event-num"><span>??</span> мая<br>2026</div>
+    <div class="event-meta">
+      <div class="event-meta-row">
+        <span class="event-meta-label">Статус</span>
+        <span class="event-meta-val">Регистрация откроется ближе к дате</span>
+      </div>
+      <div class="event-meta-row">
+        <span class="event-meta-label">Место</span>
+        <span class="event-meta-val">Москва, БЦ Лотте — адрес появится ближе к мероприятию</span>
+      </div>
+      <div class="event-meta-row">
+        <span class="event-meta-label">Вход</span>
+        <span class="event-meta-val">Бесплатно · донат приветствуется</span>
+      </div>
+    </div>
+    <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="#" class="btn btn-dark" style="opacity:.45;pointer-events:none">Регистрация пока закрыта</a>
+      <a href="rules.html" class="btn btn-outline">Как добраться →</a>
+    </div>
+  </div>
+</div>
+
+<div class="event-photo reveal">
+  <img src="img/perf5.jpg" alt="Квартирник у Маши Боруха" loading="lazy">
+</div>
+
+<div class="wrap">
+  <div class="info-cards reveal">
+    <div class="info-card">
+      <span class="info-card__num">0 ₽</span>
+      <p class="info-card__label">Бесплатно</p>
+    </div>
+    <div class="info-card">
+      <span class="info-card__num">~40</span>
+      <p class="info-card__label">Гостей</p>
+    </div>
+    <div class="info-card">
+      <span class="info-card__num">♪</span>
+      <p class="info-card__label">Живая группа</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <p class="section__label reveal">Формат</p>
+    <div class="cols-2">
+      <div class="reveal d1">
+        <h2 class="section-h2">Можно играть,<br><em>можно слушать</em></h2>
+        <p style="margin-top:1rem;font-weight:300;color:var(--smoke)">Квартирник — это не концерт. Здесь нет сцены и зрительного зала. Есть люди, музыка и живой звук.</p>
+      </div>
+      <div class="reveal d2">
+        <ul class="icon-list">
+          <li><span class="icon">🎸</span><span class="text">Живая группа играет весь вечер</span></li>
+          <li><span class="icon">🎤</span><span class="text">Гости могут присоединиться и спеть</span></li>
+          <li><span class="icon">🤝</span><span class="text">Нетворкинг и знакомства — сами собой</span></li>
+          <li><span class="icon">🍷</span><span class="text">Закуски и напитки — общий стол</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <p class="footer-brand">Квартирник у Маши Боруха</p>
+      <p class="footer-tag">Место и время, где музыканты-любители играют и поют. Бесплатный проект.</p>
+    </div>
+    <nav class="footer-links">
+      <a href="#">Telegram Маши</a>
+      <a href="#">Поддержать</a>
+      <a href="events.html">Следующий</a>
+      <a href="archive.html">Архив</a>
+      <a href="team.html">Вакансии</a>
+    </nav>
+  </div>
+  <p class="footer-line">© Квартирник у Маши Боруха · Москва</p>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+const toggle = document.getElementById('navToggle');
+const links = document.getElementById('navLinks');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, {passive:true});
+toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); });
+const io = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);} }); },{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
